@@ -1,0 +1,49 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+package hxf.core.loaders.htmlLoader.targets;
+
+import hxf.core.tools.ClassTools;
+import hxf.core.remote.RemoteCaller;
+import hxf.core.loaders.htmlLoader.events.HtmlLoaderDispatcher;
+
+class ClientHtmlLoader extends HtmlLoaderDispatcher
+{
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	public function new( sub : Dynamic, reg : Dynamic )
+	{
+		super( sub, reg );
+	}
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	public function load( filePath : String ) : Void
+	{
+		var caller = new RemoteCaller( registry );
+		caller.addEventListener( caller.eventType().complete, onLoadComplete );
+		caller.addEventListener( caller.eventType().error, 	  onLoadError );
+				
+		caller.call( ClassTools.getClassPath( subClass ), ClassTools.getLocalMethod(), [ filePath ] );
+	}
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	private function onLoadComplete( caller : RemoteCaller ) : Void
+	{
+		eventData().html 	   = caller.eventData().remoteData;
+		eventData().remoteData = caller.eventData().remoteData;
+		
+		dispatchEvent( eventType().complete );
+	}
+
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	private function onLoadError( caller : RemoteCaller ) : Void
+	{		
+		dispatchError( caller.eventData().error, this, "load" );
+	}
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////

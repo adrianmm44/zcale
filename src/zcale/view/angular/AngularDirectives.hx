@@ -1,0 +1,67 @@
+package zcale.view.angular;
+
+import zcale.xml.node.Attribute;
+import zcale.view.html.node.HtmlNode;
+
+abstract AngularDirectives<T>( HtmlNode<T> ) from HtmlNode<T> {
+	
+	@:extern public inline function jq()  			: Attribute<T> return this.get("ng-jq");
+	@:extern public inline function app() 			: Attribute<T> return this.get("ng-app");	
+	//@:extern public inline function a()  	   : Attribute<T> return this.get("a");
+	@:extern public inline function href()   		: Attribute<T> return this.get("ng-href");
+	@:extern public inline function src()    		: Attribute<T> return this.get("ng-src");
+	@:extern public inline function srcset() 		: Attribute<T> return this.get("ng-srcset");
+	@:extern public inline function disabled() 		: Attribute<T> return this.get("ng-disabled");
+	@:extern public inline function checked() 		: Attribute<T> return this.get("ng-checked");
+	@:extern public inline function readonly() 		: Attribute<T> return this.get("ng-readonly");
+	@:extern public inline function selected() 		: Attribute<T> return this.get("ng-selected");
+	@:extern public inline function open() 			: Attribute<T> return this.get("ng-open");
+	@:extern public inline function form() 			: Attribute<T> return this.get("ng-form");
+	//@:extern public inline function form() : Attribute<T> return this.get("form");
+	//@:extern public inline function textarea() : Attribute<T> return this.get("textarea");
+	//@:extern public inline function input() : Attribute<T> return this.get("input");
+	@:extern public inline function value() 		: Attribute<T> return this.get("ng-value");
+	@:extern public inline function bind() 			: Attribute<T> return this.get("ng-bind");
+	@:extern public inline function bindTemplate() 	: Attribute<T> return this.get("ng-bindTemplate");
+	@:extern public inline function bindHtml() 		: Attribute<T> return this.get("ng-bindHtml");
+	@:extern public inline function change() 		: Attribute<T> return this.get("ng-change");
+	@:extern public inline function cls() 			: Attribute<T> return this.get("ng-class");
+	@:extern public inline function classOdd() 		: Attribute<T> return this.get("ng-classOdd");
+	@:extern public inline function classEven() 	: Attribute<T> return this.get("ng-classEven");
+	@:extern public inline function cloak() 		: Attribute<T> return this.get("ng-cloak");
+	@:extern public inline function controller() 	: Attribute<T> return this.get("ng-controller");
+	@:extern public inline function csp() 			: Attribute<T> return this.get("ng-csp");
+	@:extern public inline function click() 		: Attribute<T> return this.get("ng-click");
+	@:extern public inline function dblclick() 		: Attribute<T> return this.get("ng-dblclick");
+	@:extern public inline function mousedown() 	: Attribute<T> return this.get("ng-mousedown");
+	@:extern public inline function mouseup() 		: Attribute<T> return this.get("ng-mouseup");
+	@:extern public inline function mouseover() 	: Attribute<T> return this.get("ng-mouseover");
+	@:extern public inline function mouseenter() 	: Attribute<T> return this.get("ng-mouseenter");
+	@:extern public inline function mouseleave() 	: Attribute<T> return this.get("ng-mouseleave");
+	@:extern public inline function mousemove() 	: Attribute<T> return this.get("ng-mousemove");
+	@:extern public inline function keydown() 		: Attribute<T> return this.get("ng-keydown");
+	@:extern public inline function keypress() 		: Attribute<T> return this.get("ng-keypress");
+	@:extern public inline function submit() 		: Attribute<T> return this.get("ng-submit");
+	@:extern public inline function focus() 		: Attribute<T> return this.get("ng-focus");
+	@:extern public inline function blur() 			: Attribute<T> return this.get("ng-blur");
+	@:extern public inline function copy() 			: Attribute<T> return this.get("ng-copy");
+	@:extern public inline function cut() 			: Attribute<T> return this.get("ng-cut");
+	@:extern public inline function paste() 		: Attribute<T> return this.get("ng-paste");
+	@:extern public inline function _if() 			: Attribute<T> return this.get("ng-if");
+	@:extern public inline function include() 		: Attribute<T> return this.get("ng-include");
+	@:extern public inline function init() 			: Attribute<T> return this.get("ng-init");
+	@:extern public inline function list() 			: Attribute<T> return this.get("ng-list");
+	@:extern public inline function model() 		: Attribute<T> return this.get("ng-model");
+	@:extern public inline function modelOptions() 	: Attribute<T> return this.get("ng-modelOptions");
+	@:extern public inline function nonBindable() 	: Attribute<T> return this.get("ng-nonBindable");
+	@:extern public inline function options() 		: Attribute<T> return this.get("ng-options");
+	@:extern public inline function pluralize() 	: Attribute<T> return this.get("ng-pluralize");
+	@:extern public inline function repeat() 		: Attribute<T> return this.get("ng-repeat");
+	@:extern public inline function show() 			: Attribute<T> return this.get("ng-show");
+	@:extern public inline function hide() 			: Attribute<T> return this.get("ng-hide");
+	@:extern public inline function style() 		: Attribute<T> return this.get("ng-style");
+	@:extern public inline function _switch() 		: Attribute<T> return this.get("ng-switch");
+	@:extern public inline function transclude() 	: Attribute<T> return this.get("ng-transclude");
+	//@:extern public inline function script() : Attribute<T> return this.get("script");
+	//@:extern public inline function select() : Attribute<T> return this.get("select");
+}

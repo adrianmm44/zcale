@@ -1,0 +1,47 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+package zcale.core.events;
+
+@:expose
+
+class AsyncDispatcher extends EventDispatcher
+{
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	private var asyncKeys : AsyncKeys;
+	private var asyncData : AsyncData;
+	
+	public var error : ErrorManager;
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	public function new( instance : Dynamic, eventData : AsyncData )
+	{
+		super( instance, eventData );
+				
+		asyncData = eventData;
+		asyncKeys = new AsyncKeys();
+		error 	  = new ErrorManager( eventData );
+	}
+		
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	public function dispatchError( eventData 	 : AsyncData, 
+								   instance 	 : Dynamic,
+								   ?methodName 	 : String,
+								   ?errorMessage : String ) : Void // only define errorMessage when the error occurs for the first time
+	{
+		if( errorMessage == null ){
+			asyncData.error = eventData.error;
+			error.addCrumb( instance, methodName );
+		}
+		else {
+			error.setError( instance, methodName, errorMessage );
+		}		
+		dispatch( asyncKeys.error );
+	}
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////

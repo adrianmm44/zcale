@@ -1,0 +1,78 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+package hxflib;
+
+import hxf.core.tools.TextTools;
+import hxf.core.events.dispatchers.HtmlDispatcher;
+import hxflib.htmlMail.HtmlRegistry;
+import hxflib.htmlMail.tags.HtmlTag;
+
+@:expose class HtmlMail extends HtmlDispatcher 
+{
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	static function main() : Void {}
+	
+	public static var doc : HtmlMail = new HtmlMail();
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	private var html 	 : HtmlTag;
+	private var registry : HtmlRegistry;
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	public function new()
+	{
+		super( this );
+	}
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	public function parse( str : String ) : Void
+	{
+		str = TextTools.selectByRef( str, "<html", "/html>"); // selects the html node
+		str = TextTools.specialCharsEncode( str );
+		
+		var xml  = Xml.parse( str ).firstElement();
+		registry = new HtmlRegistry();
+				
+		if( xml.nodeName == "html" )
+		{
+			html = new HtmlTag( registry );
+			html.addEventListener( html.eventType().complete, onParseComplete );
+			html.addEventListener( html.eventType().error, 	  onParseError );
+			html.parse( xml );
+		}
+		else {
+			dispatchError( html.eventData().error, this, "parse", "root element is not html" );
+		}
+	}
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	private function onParseComplete( html : HtmlTag ) : Void
+	{
+		eventData().html = registry.dom.toString();
+		
+		dispatchEvent( eventType().complete );
+	}
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	private function onParseError( html : HtmlTag ) : Void
+	{
+		dispatchError( html.eventData().error, this, "parse" );
+	}
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	public function toString() : String
+	{
+		return eventData().html;
+	}
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////

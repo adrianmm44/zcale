@@ -1,0 +1,58 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+package hxflib.htmlMail;
+
+import hxflib.htmlMail.Tag;
+import hxflib.htmlMail.tags.*;	
+
+class Tags 
+{
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	private static var TAGS : Map<String,Class<Tag>> = [
+		"a" 	 => ATag,
+		"b" 	 => BTag,
+		"body" 	 => BodyTag,
+		"br" 	 => BrTag,
+		"div" 	 => DivTag,
+		//"h1" 	 => H1Tag,
+		//"h2" 	 => H2Tag,
+		//"h3" 	 => H3Tag,
+		//"h4" 	 => H4Tag,
+		//"h5" 	 => H5Tag,
+		//"h6" 	 => H6Tag,
+		"head" 	 => HeadTag,
+		//"hr" 	 => HrTag,
+		"html" 	 => HtmlTag,
+		"i" 	 => ITag,
+		"img" 	 => ImgTag,
+		//"li" 	 => LiTag,
+		//"meta" 	 => MetaTag,
+		//"ol" 	 => OlTag,
+		"p" 	 => PTag,
+		//"span" 	 => SpanTag,
+		//"strong" => StrongTag,
+		//"sub" 	 => SubTag,
+		//"sup" 	 => SupTag,
+		"table"  => TableTag,
+		"td" 	 => TdTag,
+		//"th" 	 => ThTag,
+		"tr" 	 => TrTag
+		//"ul" 	 => UlTag
+	];
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	public function new(){}
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	public static function get( name : String ) : Class<Tag> 
+	{
+		return TAGS.get( name );
+	}
+			
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////

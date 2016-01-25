@@ -1,0 +1,68 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+package ;
+
+import hxf.Core;
+import hxf.core.Dom;
+import hxf.core.tools.PathTools;
+import hxflib.CodeCrawler;
+
+class CodeCrawlerMain 
+{
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	public static function main() : Void
+	{
+		new CodeCrawlerMain();
+	}
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	private var crawler	 : CodeCrawler;
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	public function new()
+	{
+		var core = new Core();
+		core.addEventListener( core.eventType().complete, onBootComplete );
+		core.addEventListener( core.eventType().error, 	  onError );
+		core.boot();
+	}
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	private function onBootComplete( core : Core ) : Void
+	{
+		Dom.doc.head.title  = "CodeCrawler";
+				
+		var sourcePath : String = PathTools.seekUpperDirectory( core.registry.location.rootPath, "bin/" );
+		
+		sourcePath = PathTools.popDirectory( sourcePath );
+				
+		var crawler = new CodeCrawler( core.registry );
+		//crawler.addSource( sourcePath + "src/" );
+		//crawler.addSource( sourcePath + "src/hxf/" );
+		crawler.addEventListener( crawler.eventType().complete, onCrawlingComplete );
+		crawler.addEventListener( crawler.eventType().error, 	onError );
+		crawler.crawl( sourcePath + "src/MailBuilder.hx");
+	}
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	private function onCrawlingComplete( crawler : CodeCrawler ) : Void
+	{
+		Core.trace("Crawling complete");
+	}
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	private function onError( cls : Dynamic ) : Void
+	{
+		Core.trace( cls.eventData().error.toString() );
+	}
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////

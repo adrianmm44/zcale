@@ -1,0 +1,225 @@
+package zcale.view.css.style.properties.color;
+
+import zcale.view.css.Style;
+import zcale.view.css.style.Property;
+import zcale.view.css.style.property.DynamicProperty;
+
+abstract ColorLibrary( Property<String> ) from DynamicProperty {
+		
+	@:extern public inline function new( property : Property<String> ) {
+		this = property;
+	}
+	@:extern public inline function black() 		 : Style return this.set("black");
+	@:extern public inline function silver() 		 : Style return this.set("silver");
+	@:extern public inline function gray() 			 : Style return this.set("gray");
+	@:extern public inline function white() 		 : Style return this.set("white");
+	@:extern public inline function maroon() 		 : Style return this.set("maroon");
+	@:extern public inline function red() 			 : Style return this.set("red");
+	@:extern public inline function purple() 		 : Style return this.set("purple");
+	@:extern public inline function fuchsia() 		 : Style return this.set("fuchsia");
+	@:extern public inline function green() 		 : Style return this.set("green");
+	@:extern public inline function lime() 			 : Style return this.set("lime");
+	@:extern public inline function olive() 		 : Style return this.set("olive");
+	@:extern public inline function navy() 			 : Style return this.set("navy");
+	@:extern public inline function blue() 			 : Style return this.set("blue");
+	@:extern public inline function teal() 			 : Style return this.set("teal");
+	@:extern public inline function aqua() 			 : Style return this.set("aqua");
+	@:extern public inline function orange() 		 : Style return this.set("orange");
+	@:extern public inline function aliceblue()    	 : Style return this.set("aliceblue");
+	@:extern public inline function antiquewhite() 	 : Style return this.set("antiquewhite");
+	@:extern public inline function aquamarine() 	 : Style return this.set("aquamarine");
+	@:extern public inline function azure() 		 : Style return this.set("azure");
+	@:extern public inline function beige() 		 : Style return this.set("beige");
+	@:extern public inline function bisque() 		 : Style return this.set("bisque");
+	@:extern public inline function blanchedalmond() : Style return this.set("blanchedalmond");
+	@:extern public inline function blueviolet() 	 : Style return this.set("blueviolet");
+	@:extern public inline function brown() 		 : Style return this.set("brown");
+	@:extern public inline function burlywood() 	 : Style return this.set("burlywood");
+	@:extern public inline function cadetblue() 	 : Style return this.set("cadetblue");
+	@:extern public inline function chartreuse() 	 : Style return this.set("chartreuse");
+	@:extern public inline function chocolate() 	 : Style return this.set("chocolate");
+	@:extern public inline function coral() 		 : Style return this.set("coral");
+	@:extern public inline function cornflowerblue() : Style return this.set("cornflowerblue");
+	@:extern public inline function cornsilk() 		 : Style return this.set("cornsilk");
+	@:extern public inline function crimson() 		 : Style return this.set("crimson");
+	@:extern public inline function darkblue() 		 : Style return this.set("darkblue");
+	@:extern public inline function darkcyan() 		 : Style return this.set("darkcyan");
+	@:extern public inline function darkgoldenrod()  : Style return this.set("darkgoldenrod");
+	@:extern public inline function darkgray() 		 : Style return this.set("darkgray");
+	@:extern public inline function darkgreen() 	 : Style return this.set("darkgreen");
+	@:extern public inline function darkkhaki() 	 : Style return this.set("darkkhaki");
+	@:extern public inline function darkmagenta() 	 : Style return this.set("darkmagenta");
+	@:extern public inline function darkolivegreen() : Style return this.set("darkolivegreen");
+	@:extern public inline function darkorange() 	 : Style return this.set("darkorange");
+	@:extern public inline function darkorchid() 	 : Style return this.set("darkorchid");
+	@:extern public inline function darkred() 		 : Style return this.set("darkred");
+	@:extern public inline function darksalmon() 	 : Style return this.set("darksalmon");
+	@:extern public inline function darkseagreen() 	 : Style return this.set("darkseagreen");
+	@:extern public inline function darkslateblue()  : Style return this.set("darkslateblue");
+	@:extern public inline function darkslategray()  : Style return this.set("darkslategray");
+	@:extern public inline function darkturquoise()  : Style return this.set("darkturquoise");
+	@:extern public inline function darkviolet() 	 : Style return this.set("darkviolet");
+	@:extern public inline function deeppink() 		 : Style return this.set("deeppink");
+	@:extern public inline function deepskyblue() 	 : Style return this.set("deepskyblue");
+	@:extern public inline function dimgray() 		 : Style return this.set("dimgray");
+	@:extern public inline function dodgerblue() 	 : Style return this.set("dodgerblue");
+	@:extern public inline function firebrick() 	 : Style return this.set("firebrick");
+	@:extern public inline function floralwhite() 	 : Style return this.set("floralwhite");
+	@:extern public inline function forestgreen() 	 : Style return this.set("forestgreen");
+	@:extern public inline function gainsboro() 	 : Style return this.set("gainsboro");
+	@:extern public inline function ghostwhite() 	 : Style return this.set("ghostwhite");
+	@:extern public inline function gold() 			 : Style return this.set("gold");
+	@:extern public inline function goldenrod() 	 : Style return this.set("goldenrod");
+	@:extern public inline function greenyellow() 	 : Style return this.set("greenyellow");
+	@:extern public inline function honeydew() 		 : Style return this.set("honeydew");
+	@:extern public inline function hotpink() 		 : Style return this.set("hotpink");
+	@:extern public inline function indianred() 	 : Style return this.set("indianred");
+	@:extern public inline function indigo() 		 : Style return this.set("indigo");
+	@:extern public inline function ivory() 		 : Style return this.set("ivory");
+	@:extern public inline function khaki() 		 : Style return this.set("khaki");
+	@:extern public inline function lavender() 		 : Style return this.set("lavender");
+	@:extern public inline function lavenderblush()  : Style return this.set("lavenderblush");
+	@:extern public inline function lawngreen() 	 : Style return this.set("lawngreen");
+	@:extern public inline function lemonchiffon() 	 : Style return this.set("lemonchiffon");
+	@:extern public inline function lightblue() 	 : Style return this.set("lightblue");
+	
+	#if (( ie >= 9 ) && ( firefox >= 3 ) && ( safari >= 3.1 ) && ( opera >= 10 ) || build )
+				
+		@:extern public inline function lightgoldenrodyellow() : Style return this.set("lightgoldenrodyellow");
+		@:extern public inline function lightgray() 		   : Style return this.set("lightgray");
+		@:extern public inline function lightgreen() 		   : Style return this.set("lightgreen");
+		@:extern public inline function lightpink() 		   : Style return this.set("lightpink");
+		@:extern public inline function lightsalmon() 		   : Style return this.set("lightsalmon");
+		@:extern public inline function lightseagreen() 	   : Style return this.set("lightseagreen");
+		@:extern public inline function lightskyblue() 		   : Style return this.set("lightskyblue");
+		@:extern public inline function lightslategray() 	   : Style return this.set("lightslategray");
+		@:extern public inline function lightsteelblue() 	   : Style return this.set("lightsteelblue");
+		@:extern public inline function lightyellow() 		   : Style return this.set("lightyellow");
+		@:extern public inline function limegreen() 		   : Style return this.set("limegreen");
+		@:extern public inline function linen() 			   : Style return this.set("linen");
+		@:extern public inline function mediumaquamarine() 	   : Style return this.set("mediumaquamarine");
+		@:extern public inline function mediumblue() 		   : Style return this.set("mediumblue");
+		@:extern public inline function mediumorchid() 		   : Style return this.set("mediumorchid");
+		@:extern public inline function mediumpurple() 		   : Style return this.set("mediumpurple");
+		@:extern public inline function mediumseagreen() 	   : Style return this.set("mediumseagreen");
+		@:extern public inline function mediumslateblue() 	   : Style return this.set("mediumslateblue");
+		@:extern public inline function mediumspringgreen()    : Style return this.set("mediumspringgreen");		
+		@:extern public inline function mediumturquoise() 	   : Style return this.set("mediumturquoise");
+		@:extern public inline function mediumvioletred() 	   : Style return this.set("mediumvioletred");
+		@:extern public inline function midnightblue() 		   : Style return this.set("midnightblue");
+		@:extern public inline function mintcream() 		   : Style return this.set("mintcream");
+		@:extern public inline function mistyrose() 		   : Style return this.set("mistyrose");
+		@:extern public inline function moccasin() 			   : Style return this.set("moccasin");
+		@:extern public inline function navajowhite() 		   : Style return this.set("navajowhite");
+		@:extern public inline function oldlace() 			   : Style return this.set("oldlace");
+		@:extern public inline function olivedrab() 		   : Style return this.set("olivedrab");
+		@:extern public inline function orangered() 		   : Style return this.set("orangered");
+		@:extern public inline function orchid() 			   : Style return this.set("orchid");
+		@:extern public inline function palegoldenrod() 	   : Style return this.set("palegoldenrod");
+		@:extern public inline function palegreen() 		   : Style return this.set("palegreen");
+		@:extern public inline function paleturquoise() 	   : Style return this.set("paleturquoise");
+		@:extern public inline function palevioletred() 	   : Style return this.set("palevioletred");
+		@:extern public inline function papayawhip() 		   : Style return this.set("papayawhip");		
+		@:extern public inline function peachpuff() 		   : Style return this.set("peachpuff");
+		@:extern public inline function peru() 				   : Style return this.set("peru");
+		@:extern public inline function pink() 				   : Style return this.set("pink");
+		@:extern public inline function plum() 				   : Style return this.set("plum");
+		@:extern public inline function powderblue() 		   : Style return this.set("powderblue");
+		@:extern public inline function rosybrown() 		   : Style return this.set("rosybrown");
+		@:extern public inline function royalblue() 		   : Style return this.set("royalblue");
+		@:extern public inline function saddlebrown() 		   : Style return this.set("saddlebrown");
+		@:extern public inline function salmon() 			   : Style return this.set("salmon");
+		@:extern public inline function sandybrown() 		   : Style return this.set("sandybrown");
+		@:extern public inline function seagreen() 			   : Style return this.set("seagreen");		
+		@:extern public inline function seashell() 			   : Style return this.set("seashell");
+		@:extern public inline function sienna() 			   : Style return this.set("sienna");
+		@:extern public inline function skyblue() 			   : Style return this.set("skyblue");
+		@:extern public inline function slateblue() 		   : Style return this.set("slateblue");
+		@:extern public inline function slategray() 		   : Style return this.set("slategray");
+		@:extern public inline function snow() 				   : Style return this.set("snow");
+		@:extern public inline function springgreen() 		   : Style return this.set("springgreen");
+		@:extern public inline function steelblue() 		   : Style return this.set("steelblue");
+		@:extern public inline function tan() 				   : Style return this.set("tan");
+		@:extern public inline function thistle() 			   : Style return this.set("thistle");
+		@:extern public inline function tomato() 			   : Style return this.set("tomato");
+		@:extern public inline function turquoise() 		   : Style return this.set("turquoise");		
+		@:extern public inline function violet() 			   : Style return this.set("violet");
+		@:extern public inline function wheat() 			   : Style return this.set("wheat");
+		@:extern public inline function whitesmoke()		   : Style return this.set("whitesmoke");
+		@:extern public inline function yellowgreen() 		   : Style return this.set("yellowgreen");
+	#else
+		@:extern public inline function lightgoldenrodyellow() : Style return this.set("#fafad2");
+		@:extern public inline function lightgray() 		   : Style return this.set("#d3d3d3");
+		@:extern public inline function lightgreen() 		   : Style return this.set("#90ee90");
+		@:extern public inline function lightpink() 		   : Style return this.set("#ffb6c1");
+		@:extern public inline function lightsalmon() 		   : Style return this.set("#ffa07a");
+		@:extern public inline function lightseagreen() 	   : Style return this.set("#20b2aa");
+		@:extern public inline function lightskyblue() 		   : Style return this.set("#87cefa");
+		@:extern public inline function lightslategray() 	   : Style return this.set("#778899");
+		@:extern public inline function lightsteelblue() 	   : Style return this.set("#b0c4de");
+		@:extern public inline function lightyellow() 		   : Style return this.set("#ffffe0");
+		@:extern public inline function limegreen() 		   : Style return this.set("#32cd32");
+		@:extern public inline function linen() 			   : Style return this.set("#faf0e6");
+		@:extern public inline function mediumaquamarine() 	   : Style return this.set("#66cdaa");
+		@:extern public inline function mediumblue() 		   : Style return this.set("#0000cd");
+		@:extern public inline function mediumorchid() 		   : Style return this.set("#ba55d3");
+		@:extern public inline function mediumpurple() 		   : Style return this.set("#9370db");
+		@:extern public inline function mediumseagreen() 	   : Style return this.set("#3cb371");
+		@:extern public inline function mediumslateblue() 	   : Style return this.set("#7b68ee");
+		@:extern public inline function mediumspringgreen()    : Style return this.set("#00fa9a");		
+		@:extern public inline function mediumturquoise() 	   : Style return this.set("#48d1cc");
+		@:extern public inline function mediumvioletred() 	   : Style return this.set("#c71585");
+		@:extern public inline function midnightblue() 		   : Style return this.set("#191970");
+		@:extern public inline function mintcream() 		   : Style return this.set("#f5fffa");
+		@:extern public inline function mistyrose() 		   : Style return this.set("#ffe4e1");
+		@:extern public inline function moccasin() 			   : Style return this.set("#ffe4b5");
+		@:extern public inline function navajowhite() 		   : Style return this.set("#ffdead");
+		@:extern public inline function oldlace() 			   : Style return this.set("#fdf5e6");
+		@:extern public inline function olivedrab() 		   : Style return this.set("#6b8e23");
+		@:extern public inline function orangered() 		   : Style return this.set("#ff4500");
+		@:extern public inline function orchid() 			   : Style return this.set("#da70d6");
+		@:extern public inline function palegoldenrod() 	   : Style return this.set("#eee8aa");
+		@:extern public inline function palegreen() 		   : Style return this.set("#98fb98");
+		@:extern public inline function paleturquoise() 	   : Style return this.set("#afeeee");
+		@:extern public inline function palevioletred() 	   : Style return this.set("#db7093");
+		@:extern public inline function papayawhip() 		   : Style return this.set("#ffefd5");		
+		@:extern public inline function peachpuff() 		   : Style return this.set("#ffdab9");
+		@:extern public inline function peru() 				   : Style return this.set("#cd853f");
+		@:extern public inline function pink() 				   : Style return this.set("#ffc0cb");
+		@:extern public inline function plum() 				   : Style return this.set("#dda0dd");
+		@:extern public inline function powderblue() 		   : Style return this.set("#b0e0e6");
+		@:extern public inline function rosybrown() 		   : Style return this.set("#bc8f8f");
+		@:extern public inline function royalblue() 		   : Style return this.set("#4169e1");
+		@:extern public inline function saddlebrown() 		   : Style return this.set("#8b4513");
+		@:extern public inline function salmon() 			   : Style return this.set("#fa8072");
+		@:extern public inline function sandybrown() 		   : Style return this.set("#f4a460");
+		@:extern public inline function seagreen() 			   : Style return this.set("#2e8b57");		
+		@:extern public inline function seashell() 			   : Style return this.set("#fff5ee");
+		@:extern public inline function sienna() 			   : Style return this.set("#a0522d");
+		@:extern public inline function skyblue() 			   : Style return this.set("#87ceeb");
+		@:extern public inline function slateblue() 		   : Style return this.set("#6a5acd");
+		@:extern public inline function slategray() 		   : Style return this.set("#708090");
+		@:extern public inline function snow() 				   : Style return this.set("#fffafa");
+		@:extern public inline function springgreen() 		   : Style return this.set("#00ff7f");
+		@:extern public inline function steelblue() 		   : Style return this.set("#4682b4");
+		@:extern public inline function tan() 				   : Style return this.set("#d2b48c");
+		@:extern public inline function thistle() 			   : Style return this.set("#d8bfd8");
+		@:extern public inline function tomato() 			   : Style return this.set("#ff6347");
+		@:extern public inline function turquoise() 		   : Style return this.set("#40e0d0");		
+		@:extern public inline function violet() 			   : Style return this.set("#ee82ee");
+		@:extern public inline function wheat() 			   : Style return this.set("#f5deb3");
+		@:extern public inline function whitesmoke()		   : Style return this.set("#f5f5f5");
+		@:extern public inline function yellowgreen() 		   : Style return this.set("#9acd32");
+	#end		
+	#if (( ie 	  >= 11 )  && 
+		( firefox >= 33 )  && 
+		( chrome  >= 38 )  && 
+		( safari  >= 7.1 ) && 
+		( opera   >= 25 )  && 
+		( safariMobile >= 8 ) || build )
+				
+		@:extern public inline function rebeccapurple() : Style return this.set("rebeccapurple");
+	#else
+		@:extern public inline function rebeccapurple() : Style return this.set("#663399");
+	#end
+}

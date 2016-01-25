@@ -1,0 +1,129 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+package hxflib.codeCrawler;
+
+import hxf.core.tools.TextTools;
+
+class Code
+{
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+		
+	private var code : String;
+	
+	public var index : Int = 0;
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	public function new( str : String )
+	{
+		code = str;
+	}
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	public function read( ?length : Int ) : String
+	{
+		return StringTools.ltrim( code.substr( index )).substr( 0, length );
+	}
+
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	public function readWord( ?limit : String ) : String
+	{
+		var chars : Array<String> = TextTools.whiteSpaceChars;
+
+		if( limit != null ){
+			chars.push( limit );
+		}
+
+		var charIndex : Int = TextTools.indexOfChars( read(), chars );		
+		
+		if( charIndex > -1 )
+		{
+			return read( charIndex );
+		}
+		else {
+			return read();
+		}
+	}
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	public function readUntil( str : String, included : Bool = false ) : String
+	{
+		var result : String = "";		
+		var length : Int 	= code.indexOf( str, index ) - index;
+				
+		if( length > -1 )
+		{
+			if( included == true ){
+				length += str.length;
+			}
+			
+			result = StringTools.ltrim( code.substr( index, length ));
+		}
+
+		return  result;
+	}
+
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	public function indexOf( str : String ) : Int
+	{
+		var strIndex : Int = -1;
+		
+		if( str.length > 0 ){
+			strIndex = code.indexOf( str, index ) - index;
+		}
+		
+		if( strIndex < -1 ){
+			strIndex = -1;
+		}
+
+		return strIndex;
+	}
+
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	public function lastIndexOf( str: String ) : Int
+	{
+		var strIndex : Int = -1;
+		
+		if( str.length > 0 ){
+			strIndex = code.lastIndexOf( str ) - index;
+		}
+		
+		if( strIndex < -1 ){
+			strIndex = -1;
+		}
+		
+		return strIndex;
+	}
+
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	public function endIndexOf( str : String ) : Int
+	{
+		var strIndex : Int = indexOf( str );
+
+		if( strIndex > -1 ){
+			strIndex += str.length;
+		}
+		else {
+			strIndex = 0;
+		}
+		
+		return strIndex;
+	}
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	public function toString() : String
+	{
+		return code;
+	}
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////

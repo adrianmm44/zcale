@@ -1,0 +1,9 @@
+-cp src
+-lib zcale
+-lib angular.haxe
+-neko Test.n
+--macro Test.main()
+--no-output
+-D build
+--next
+buildscript.hxml

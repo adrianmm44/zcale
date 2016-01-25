@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:g="http://base.google.com/ns/1.0">
+	<channel>
+		<test/>
+		Test PCData 1
+		Test PCData 2
+		<![CDATA[Test CData 1]]>
+		<![CDATA[Test CData 2]]>
+		<!-- Test Comment1 -->
+		<!-- Test Comment2 -->
+		Test String
+	</channel>
+</rss>

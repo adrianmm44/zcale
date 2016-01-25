@@ -1,0 +1,38 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+package zcale.core;
+
+import zcale.settings.CoreSettings;
+import zcale.macros.php.Server;
+
+class External
+{
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	public static var modules( get, null ) : Array<String>;
+	
+	private static var moduleSequence : Array<String>;
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	private static function get_modules() : Array<String>
+	{
+		if( moduleSequence == null )
+		{
+			#if flash
+				moduleSequence = Reflect.field( flash.Lib.current.root.loaderInfo.parameters, CoreSettings.varModules ).split(",");
+			#elseif js
+				moduleSequence = Reflect.field( zcale.macros.js.Window, CoreSettings.varModules );
+			#elseif php
+				moduleSequence = cast php.Lib.toHaxeArray( Server.global( CoreSettings.varModules ) );
+			#else
+				#error "target unknown"
+			#end
+		}
+		return moduleSequence;
+	}
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
